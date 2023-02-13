@@ -1,0 +1,94 @@
+<div class="Registerform">
+    <div class="card">
+        <form [formGroup]="registerform" (ngSubmit)="Submit()">
+            <h4 class="text-center">Register Form</h4>
+            <div class="mb-2">
+                <label class="form-label"><b>Username</b></label>
+                <input type="text" class="form-control" (copy)="false" (paste)="false" formControlName="username" autocomplete="off"
+                    [ngClass]="{'is-invalid':registerform.get('username').touched && registerform.get('username').invalid}">
+                <div class="text" *ngIf="registerform.get('username').touched && registerform.get('username').invalid"
+                    class="invalid-feedback">
+                    <div class="text" *ngIf="registerform.get('username').errors.required">UserName Is Required
+                    </div>
+                    <div class="text" *ngIf="registerform.get('username').errors['minlength']">UserName must be at least 8 characters long</div>
+                    <div class="text" *ngIf="registerform.get('username').errors['pattern']">UserName Is Letters Only</div>
+                    <div class="text" *ngIf="registerform.get('username').errors.cannotContainSpace">UserName Can Not Contain Space</div>
+                </div>            
+            </div>
+            <div class="mb-2">
+                <label class="form-label"><b>Email</b></label>
+                <input type="email" class="form-control" (copy)="false" (paste)="false" formControlName="email" autocomplete="off"
+                    [ngClass]="{'is-invalid':registerform.get('email').touched && registerform.get('email').invalid}">
+                <div class="text" *ngIf="registerform.get('email').touched && registerform.get('email').invalid"
+                    class="invalid-feedback">
+                    <div class="text" *ngIf="registerform.get('email').errors.required">Email Is Required</div>
+                    <div class="text" *ngIf="registerform.get('email').errors['pattern']">Email Is Invalid</div>
+                </div>
+            </div>
+            <!-- <div class="mb-2">
+                <label class="form-label"><b>Confirm Email</b></label>
+                <input type="email" class="form-control" formControlName="Cemail" autocomplete="off"
+                    [ngClass]="{'is-invalid':registerform.get('Cemail').touched && registerform.get('Cemail').invalid}">
+                <div class="text" *ngIf="registerform.get('Cemail').touched && registerform.get('Cemail').invalid"
+                    class="invalid-feedback">
+                    <div class="text" *ngIf="registerform.get('Cemail').errors.required">Confirm Email Is Required
+                    </div>
+                    <div class="text" *ngIf="registerform.get('Cemail').errors['matchings']">Email Is Mismatch
+                    </div>
+                </div>
+            </div> -->
+            <div class="mb-2">
+                <label class="form-label"><b>Password</b></label>
+                <input type="password" class="form-control" (copy)="false" (paste)="false" formControlName="password" autocomplete="off"
+                    [ngClass]="{'is-invalid':registerform.get('password').touched && registerform.get('password').invalid}">
+                <div class="text" *ngIf="registerform.get('password').touched && registerform.get('password').invalid"
+                    class="invalid-feedback">
+                    <div class="text" *ngIf="registerform.get('password').errors.required">Password Is Required
+                    </div>
+                    <div class="text" *ngIf="registerform.get('password').errors['minlength']">Password must be at least 8 characters long</div>
+                    <div class="text" *ngIf="registerform.get('password').errors['maxlength']">Password must be at Maximum 16 characters long</div>
+                    <div class="text" *ngIf="registerform.get('password').errors['pattern']">Your password must contain at least one uppercase, one lowercase, and one number</div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label"><b>Confirm Password</b></label>
+                <input type="password" class="form-control" (copy)="false" (paste)="false" formControlName="Cpass" autocomplete="off"
+                    [ngClass]="{'is-invalid':registerform.get('Cpass').touched && registerform.get('Cpass').invalid}">
+                <div class="text" *ngIf="registerform.get('Cpass').touched && registerform.get('Cpass').invalid"
+                    class="invalid-feedback">
+                    <div class="text" *ngIf="registerform.get('Cpass').errors.required">Confirm Password Is Required
+                    </div>
+                    <div class="text" *ngIf="registerform.get('Cpass').errors['matching']">Password Is Mismatch
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><b>Phone Number </b></label>
+                <input type="number" class="form-control" (copy)="false" (paste)="false" formControlName="phone"
+                    [ngClass]="{'is-invalid':registerform.get('phone').touched && registerform.get('phone').invalid}">
+                <div class="text" *ngIf="registerform.get('phone').touched && registerform.get('phone').invalid"
+                    class="invalid-feedback">
+                    <div class="text" *ngIf="registerform.get('phone').errors.required">Phone Number Is Required
+                    </div>
+                    <div class="text" *ngIf="registerform.get('phone').errors.pattern">Phone Number Is Invalid</div>
+                </div>
+            </div>
+            <div class="button text-center">
+                <button type="submit" [disabled]="!registerform.valid" class="btn Reg_button">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+    <!-- <label for="exampleInputEmail1" class="form-label"><b>Email </b></label>
+              <input type="email" placeholder="abc@gmail.com" class="form-control" id="exampleInputEmail1"  formControlName="email"
+                aria-describedby="emailHelp" [ngClass]="{'is-invalid':loginform.get('email').touched && loginform.get('email').invalid}" >
+                <div *ngIf="loginform.get('email').touched && loginform.get('email').invalid"  class="invalid-feedback">
+                  <div *ngIf="loginform.get('email').errors.required">Email Is Required</div>
+                  <div *ngIf="loginform.get('email').errors.email">Email Is Invalid</div>
+                </div> -->
